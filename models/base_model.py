@@ -42,10 +42,15 @@ class BaseModel():
 
     def __str__(self):
         """Prints [<class name>] (<self.id>) <self.__dict__>"""
-        msg = "[" + str(self.__class__.__name__) + "] "
-        msg += "(" + str(self.id) + ") "
-        msg += str(self.__dict__)
-        return msg
+        return ("[{}] ({}) {}".
+                        format(self.__class__.__name__, self.id, self.__dict__))
+
+    def __repr__(self):
+        """
+        Returns the string representation of BaseModel
+        calls __str__()
+        """
+        return (self.__str__())
 
     def save(self):
         """Updates the updated_at with current datetime."""

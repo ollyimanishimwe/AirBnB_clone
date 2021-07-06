@@ -291,38 +291,42 @@ class HBNBCommand(cmd.Cmd):
         the commands that are handled here are:
         <class name>.all()
         """
-        args = line.split('.')
-        cls_name = ""
-        if args[0] is not None:
-            cls_name = args[0]
-        if args[1] is not None:
-            if (args[1] == 'all()'):
-                HBNBCommand.handle_def_all(line, cls_name)
-            elif (args[1] == 'count()'):
-                HBNBCommand.handle_def_count(line, cls_name)
-            else:
-                cmds = re.split('\(|\"|\)', args[1])
-                cmds = list(filter(lambda s: s != '', cmds))
-                if cmds[0] == 'show':
-                    HBNBCommand.handle_def_show(cls_name, cmds[1])
-                elif cmds[0] == 'destroy':
-                    HBNBCommand.handle_def_destroy(cls_name, cmds[1])
-                elif cmds[0] == 'update':
-                    cmds = re.split('\(|\"|\)|\{|\'|\}|: |:|, ', args[1])
-                    cmds = list(filter(lambda s: s != '' and s != ' ', cmds))
-                    cmds = list(filter(lambda s: s != ', ', cmds))
-                    if (len(cmds) == 4):
-                        HBNBCommand.handle_def_update(
-                            cls_name, cmds[1], cmds[2], cmds[3]
-                        )
-                    else:
-                        tab = cmds[2:]
-                        d = {}
-                        for i in range(0, len(tab), 2):
-                            d[tab[i]] = tab[i + 1]
-                        HBNBCommand.handle_def_update_with_dict(
-                            cls_name, cmds[1], d
-                        )
+        try:
+            args = line.split('.')
+            cls_name = ""
+            if args[0] is not None:
+                cls_name = args[0]
+            if args[1] is not None:
+                if (args[1] == 'all()'):
+                    HBNBCommand.handle_def_all(line, cls_name)
+                elif (args[1] == 'count()'):
+                    HBNBCommand.handle_def_count(line, cls_name)
+                else:
+                    cmds = re.split('\(|\"|\)', args[1])
+                    cmds = list(filter(lambda s: s != '', cmds))
+                    if cmds[0] == 'show':
+                        HBNBCommand.handle_def_show(cls_name, cmds[1])
+                    elif cmds[0] == 'destroy':
+                        HBNBCommand.handle_def_destroy(cls_name, cmds[1])
+                    elif cmds[0] == 'update':
+                        cmds = re.split('\(|\"|\)|\{|\'|\}|: |:|, ', args[1])
+                        cmds = list(filter(lambda s: s != '' and s != ' ', cmds))
+                        cmds = list(filter(lambda s: s != ', ', cmds))
+                        if (len(cmds) == 4):
+                            HBNBCommand.handle_def_update(
+                                cls_name, cmds[1], cmds[2], cmds[3]
+                            )
+                        else:
+                            tab = cmds[2:]
+                            d = {}
+                            for i in range(0, len(tab), 2):
+                                d[tab[i]] = tab[i + 1]
+                            HBNBCommand.handle_def_update_with_dict(
+                                cls_name, cmds[1], d
+                            )
+        except IndexError:
+            print("** command handler does not exit **")
+            return
 
 
 if __name__ == '__main__':
