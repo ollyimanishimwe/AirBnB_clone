@@ -20,5 +20,5 @@ The command interpreter is currently capable of:
 * Style guidelines: [PEP 8 (version 1.7)](https://www.python.org/dev/peps/pep-0008/) \|| [Google Style Python Docstrings](http://sphinxcontrib-napoleon.readthedocs.io/en/l\atest/example_google.html)
 
 ### Authors
-* Olly | [GitHub](https://github.com/ollyimanishimwe) | [Twitter] (https://twitter.com/ollyImanishimwe)
-* Chris | [GitHub](https://github.com/crispy-rw/) | [Twitter] (https://twitter.com/rw_crispy)
+* Olly | [GitHub](https://github.com/ollyimanishimwe) | [Twitter](https://twitter.com/ollyImanishimwe)
+* Chris | [GitHub](https://github.com/crispy-rw/) | [Twitter](https://twitter.com/rw_crispy)
