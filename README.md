@@ -6,7 +6,7 @@
 
 ### The command interpreter
 
-The command interpreter is currently capable of:
+With command interpreter you can:
 
 - Destroy an object
 - Update attributes of an object
