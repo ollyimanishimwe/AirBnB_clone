@@ -8,11 +8,11 @@
 
 The command interpreter is currently capable of:
 
-- Create a new object (ex: a new User or a new Place)
-- Retrieve an object from a file, a database etc
-- Do operations on objects (count, compute stats, etc)
-- Update attributes of an object
 - Destroy an object
+- Update attributes of an object
+- Retrieve an object from a file, a database etc
+- Create a new object (ex: a new User or a new Place)
+- Do operations on objects (count, compute stats, etc)
 
 ### Environment
 * OS: MacOs Catalina
