@@ -229,12 +229,16 @@ class HBNBCommand(cmd.Cmd):
         """
         Handles the default <class name>.show(<id>) console function.
         """
-        objs = storage.all()
-        key = cls_name + '.' + id
-        if key in objs:
-            print(objs[key])
-        else:
-            print("** no instance found **")
+        try:
+            objs = storage.all()
+            key = cls_name + '.' + id
+            if key in objs:
+                print(objs[key])
+            else:
+                print("** no instance found **")
+        except:
+            print("** Id does not Exist **")
+            return
 
     @staticmethod
     def handle_def_destroy(cls_name, id):
@@ -292,6 +296,9 @@ class HBNBCommand(cmd.Cmd):
         <class name>.all()
         """
         try:
+            if line == 'exit':
+                sys.exit()
+
             args = line.split('.')
             cls_name = ""
             if args[0] is not None:
@@ -310,7 +317,9 @@ class HBNBCommand(cmd.Cmd):
                         HBNBCommand.handle_def_destroy(cls_name, cmds[1])
                     elif cmds[0] == 'update':
                         cmds = re.split('\(|\"|\)|\{|\'|\}|: |:|, ', args[1])
-                        cmds = list(filter(lambda s: s != '' and s != ' ', cmds))
+                        cmds = list(
+                                filter(lambda s: s != '' and s != ' ', cmds)
+                                )
                         cmds = list(filter(lambda s: s != ', ', cmds))
                         if (len(cmds) == 4):
                             HBNBCommand.handle_def_update(

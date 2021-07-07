@@ -4,3 +4,4 @@ test_base_model_dict.py
 test_*.py
 test_save_reload_base_model.py
 base_model_4.py
+file.json
